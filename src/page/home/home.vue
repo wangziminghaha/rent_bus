@@ -69,7 +69,7 @@ export default {
     },
     // 导航切换
     changetop(e, ind) {
-      console.log(ind);
+      // console.log(ind);
       this.$store.commit("changeindex", ind);
    
       e.target.className = "active";

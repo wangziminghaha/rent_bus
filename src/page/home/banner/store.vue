@@ -141,7 +141,7 @@ export default {
 
 <style scoped lang='less'>
 .map {
-  height: 4.5rem;
+  height: 5rem;
   /deep/.BMap_bubble_title{
       font-size: .12rem;
   }

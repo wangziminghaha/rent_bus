@@ -102,7 +102,7 @@ export default {
         this.datilelist = res.data.result;
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
     this.$nextTick(() => {
       this._initScroll();
@@ -111,7 +111,7 @@ export default {
   methods: {
     //选择城市
     changeinfo(a, b) {
-      console.log(b);
+      // console.log(b);
       this.$store.commit("changecome", a);
       this.$store.commit("changespan", b);
       // window.history.go(-1);

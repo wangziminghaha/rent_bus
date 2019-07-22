@@ -43,10 +43,10 @@ export default {
       .get("./static/data/sharelistdata.json")
       .then(res => {
         this.sharelist = res.data.data;
-        console.log(this.sharelist);
+        // console.log(this.sharelist);
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   },
   methods: {},

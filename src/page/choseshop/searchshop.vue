@@ -59,10 +59,10 @@ export default {
       .get("./static/data/searshop.json")
       .then(res => {
         this.datilelist = res.data.datalist;
-        console.log(this.datilelist);
+        // console.log(this.datilelist);
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       });
   },
   methods: {

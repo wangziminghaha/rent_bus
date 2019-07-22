@@ -88,7 +88,7 @@ export default {
       this.$store.commit('changehome',this.show);
     },
     changeph(){
-      console.log(1111111)
+      // console.log(1111111)
     }
   },
   components: {},
