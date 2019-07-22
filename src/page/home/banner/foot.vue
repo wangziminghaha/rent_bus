@@ -42,9 +42,14 @@ a {
   text-decoration: none;
   color: #000;
 }
+.map{
+  height: 5rem;
+}
 .box {
   width: 100%;
   footer {
+    position: fixed;
+    bottom: 0;
     background: #fff;
     width: 100%;
     height: 1.04rem;

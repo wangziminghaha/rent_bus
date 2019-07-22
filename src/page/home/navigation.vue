@@ -6,7 +6,7 @@
           <router-link to="/minedata">
           <img src="./img/touxiang@2x.png" /></router-link>
         </a>
-        <p>名字</p>
+        <p v-text="phone">名字</p>
         <div>
           <a href="javaScript:;" class="crow">
             <img src="./img/huiyanka-putong@2x.png" alt />
@@ -79,7 +79,8 @@ export default {
   // props: ['show'],
   data() {
     return {
-      show:false
+      show:false,
+      phone:"名字"
     };
   },
   methods: {
@@ -90,7 +91,13 @@ export default {
       console.log(1111111)
     }
   },
-  components: {}
+  components: {},
+  mounted(){
+    // console.log(this.$store.state.phone);
+    if(this.$store.state.phone !== ''){
+      this.phone = this.$store.state.phone;
+    }
+  }
 };
 </script>
 

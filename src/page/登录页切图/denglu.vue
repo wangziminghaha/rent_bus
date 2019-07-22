@@ -52,6 +52,7 @@ export default {
   },
   methods: {
     axios_(){
+       this.$store.commit('getphone',this.phone);
       if(this.value2==''){
         return false
     }
@@ -116,7 +117,7 @@ export default {
           var p_=document.getElementById('p_')
            var num=15;
         var time=null;
-           jsonp('http://172.25.1.42:8080/register/send?phone='+this.phone,(res)=>{
+           jsonp('http://172.25.1.216:8080/register/send?phone='+this.phone,(res)=>{
             callback(res);
         })
 
@@ -136,7 +137,7 @@ export default {
     //     }
      
         },
-        this.axios.get('http://172.25.1.42:8080/register/send?phone='+this.phone+'&callback=__jp0').then((res)=>{
+        this.axios.get('http://172.25.1.216:8080/register/send?phone='+this.phone+'&callback=__jp0').then((res)=>{
       console.log(res.data.auth)
       this.yanzheng=res.data.auth
     })

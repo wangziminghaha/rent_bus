@@ -241,9 +241,5 @@ th {
 {
     font-family: pingfang;
     src: url('../font/PingFangBold.ttf')
-        ,url('../font/PingFangExtraLight.ttf')
-        ,url('../font/PingFangHeavy.ttf')
-        ,url('../font/PingFangLight.ttf')
         ,url('../font/PingFangMedium.ttf')
-        ,url('../font/PingFangRegular.ttf')
 }

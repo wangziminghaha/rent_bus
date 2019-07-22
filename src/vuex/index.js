@@ -23,6 +23,8 @@ export default new vuex.Store({
     city2: '郑州',
     //文本
     text:'',
+    //phone
+    phone:"",
     homedata: {
       show: false,
       to: '郑州动物园自助点',
@@ -168,6 +170,10 @@ export default new vuex.Store({
     //文本
     addtext(state,val){
       state.text = val;
+    },
+    getphone(state,val){
+      console.log(val)
+      state.phone = val;
     }
   },
   getters: {},

@@ -6,8 +6,8 @@
       </a>
       <span v-if="$store.state.homedata.toshop">选择门店</span>
       <span v-else>门店</span>
-      <router-link to='/searchshop' v-if="$store.state.homedata.toshop">
-      <i class="icon search"></i>
+      <router-link to="/searchshop" v-if="$store.state.homedata.toshop">
+        <i class="icon search"></i>
       </router-link>
       <router-link to v-else>
         <i class="icon ding"></i>
@@ -20,9 +20,17 @@
         <span class="currentcity"></span>
       </div>
     </div>
-  <div class="chosecont" ref="all" :class="{'pone':$store.state.homedata.toshop,'ptwo':!$store.state.homedata.toshop}">
+    <div
+      class="chosecont"
+      ref="all"
+      :class="{'pone':$store.state.homedata.toshop,'ptwo':!$store.state.homedata.toshop}"
+    >
       <!-- 左侧导航 -->
-      <div class="left" ref="left" :class="{'ulone':$store.state.homedata.toshop,'ultwo':!$store.state.homedata.toshop}">
+      <div
+        class="left"
+        ref="left"
+        :class="{'ulone':$store.state.homedata.toshop,'ultwo':!$store.state.homedata.toshop}"
+      >
         <ul>
           <li
             v-for="(item,index) in list"
@@ -32,25 +40,36 @@
             :class="{'active':currentIndex===index}"
           >{{ item }}</li>
         </ul>
-  </div>
- <!-- 右侧内容 -->
-   <div class="right" ref="right">
-  <div class="content">
-       <div class="rightlist" v-for="(item,index) in datilelist" :key="index" ref="rightlist">
-        <p class="title" ref="tit">{{item.title}}</p>
-         <ul>
-           <li v-for="(con,ind) in item.datalist" :key="ind" @click="changeinfo(con.name,con.type)">
-            <a href="javaScript:;">
-                 <div>
-                    <router-link to="/home/china"><span>{{con.name}}</span></router-link>  <div>   <span class="self" v-if="con.type==2"></span><i class="car" v-else-if="con.type==1"></i>
-                  <router-link to="/shop_xiangqing"> <span class="nearby" v-if="item.nearby==0">{{con.space}}</span><i class="more" v-else></i></router-link> </div>
-                 </div>
-                 <p class="info">
-                {{con.details}}
-                 </p>
-           </a>
-           </li>
-         </ul>
+      </div>
+      <!-- 右侧内容 -->
+      <div class="right" ref="right">
+        <div class="content">
+          <div class="rightlist" v-for="(item,index) in datilelist" :key="index" ref="rightlist">
+            <p class="title" ref="tit">{{item.title}}</p>
+            <ul>
+              <li
+                v-for="(con,ind) in item.datalist"
+                :key="ind"
+                @click="changeinfo(con.name,con.type)"
+              >
+                <a href="javaScript:;">
+                  <div>
+                    <router-link to="/home/china">
+                      <span>{{con.name}}</span>
+                    </router-link>
+                    <div>
+                      <span class="self" v-if="con.type==2"></span>
+                      <i class="car" v-else-if="con.type==1"></i>
+                      <router-link to="/shop_xiangqing">
+                        <span class="nearby" v-if="item.nearby==0">{{con.space}}</span>
+                        <i class="more" v-else></i>
+                      </router-link>
+                    </div>
+                  </div>
+                  <p class="info">{{con.details}}</p>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -98,8 +117,10 @@ export default {
       // window.history.go(-1);
     },
     //  返回上一页
-    back(){
-      window.history.go(-1);
+    back() {
+      let arr = this.$store.state.homedata.myarr;
+      let ind = this.$store.state.homedata.index;
+      this.$router.push(arr[ind]);
     },
     //  三栏联动
     _initScroll() {
@@ -109,7 +130,7 @@ export default {
       this.right = new BScroll(this.$refs.right, {
         click: true,
         probeType: 3,
-        scrollY:true
+        scrollY: true
       });
       this.right.on("scroll", pos => {
         this.scrolly = Math.abs(Math.round(pos.y));
@@ -119,8 +140,8 @@ export default {
     //  左侧栏点击事件
     selectItem(index, event) {
       // this.clickEvent=true;
-    let leftItem = this.$refs.left.getElementsByTagName("li");
-    //  添加类名
+      let leftItem = this.$refs.left.getElementsByTagName("li");
+      //  添加类名
       for (let i = 0; i < leftItem.length; i++) {
         leftItem[i].className = "";
       }
@@ -153,11 +174,11 @@ export default {
           return 0;
         }
       }
-    //  如果长度为0 返回0
+      //  如果长度为0 返回0
       return 0;
     }
   },
-  beforeDestroy(){
+  beforeDestroy() {
     // this._getHeight=null;
     this.right.destroy();
   }
@@ -177,7 +198,7 @@ export default {
     left: 0;
     z-index: 99;
     width: 100%;
-  height: 0.44rem;
+    height: 0.44rem;
     border-bottom: 0.01rem solid #ccc;
     background: rgba(255, 255, 255, 1);
     display: flex;
@@ -192,12 +213,12 @@ export default {
       &:last-child {
         width: 0.6rem;
       }
-    .icon {
+      .icon {
         display: block;
         width: 0.22rem;
         height: 0.22rem;
       }
-    .back {
+      .back {
         background: url("./img/fanhui@2x.png") no-repeat;
         background-size: 100% 100%;
       }
@@ -206,8 +227,8 @@ export default {
         background-size: 100% 100%;
       }
       .ding {
-        width: .16rem;
-        height: .2rem;
+        width: 0.16rem;
+        height: 0.2rem;
         background: url("./img/dingwei@2x.png") no-repeat;
         background-size: 100% 100%;
       }
@@ -241,21 +262,21 @@ export default {
       margin-left: 0.05rem;
     }
   }
-  .pone{
-    margin-top: .44rem;
+  .pone {
+    margin-top: 0.44rem;
   }
-  .ptwo{
-    margin-top: .7rem;
+  .ptwo {
+    margin-top: 0.7rem;
   }
   .chosecont {
     // margin-top: 0.7rem;
     display: flex;
     position: relative;
-    .ultwo{
-       top: 0.7rem;
+    .ultwo {
+      top: 0.7rem;
     }
-    .ulone{
-      top: .44rem;
+    .ulone {
+      top: 0.44rem;
     }
     .left {
       position: fixed;
@@ -283,8 +304,8 @@ export default {
           width: 2.95rem;
           overflow: hidden;
           .pos {
-          position: fixed;
-          z-index: 99999;
+            position: fixed;
+            z-index: 99999;
           }
           .title {
             display: block;

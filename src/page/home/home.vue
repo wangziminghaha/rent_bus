@@ -11,9 +11,10 @@
         <a href="#/choseshop" @click="tochoose">
           <i class="search"></i>
         </a>
+        <router-link to="/customer/domestic">
         <a href="#">
           <i class="see"></i>
-        </a>
+        </a></router-link>
       </div>
     </div>
     <!-- home 导航 -->
